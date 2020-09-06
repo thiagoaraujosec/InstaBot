@@ -7,14 +7,14 @@ Grey="\033[1;30m"
 Reset="\033[0m"
 Red="\033[1;31m"
 bot = Bot()
-user = str(input(Blue+"\nPon tu nombre de usuario = "+Reset))
-#Login Bot
-passwd = str(input(Blue+"\nPon tu contraseña = "+Reset))
-try:
-    bot.login(username=user, password=passwd)
-    print(Blue+"\n[+]Sesion iniciada correctamente"+Reset)
-except:
-    print(Red+"\n[-]No se pudo iniciar sesion,intentelo de nuevo"+Reset)
+def inicio():
+    try:
+        user = str(input(Blue+"\nPon tu nombre de usuario = "+Reset))
+        passwd = str(input(Blue+"\nPon tu contraseña = "+Reset))
+        bot.login(username=user, password=passwd)
+        print(Blue+"\n[+]Sesion iniciada correctamente"+Reset)
+    except:
+        print(Red+"\n[-]No se pudo iniciar sesion,intentelo de nuevo"+Reset)
    
 def opcion():
     print(Blue+"Que quieres hacer? :"+Reset)
@@ -143,4 +143,8 @@ def info():
     except:
         pass
 if __name__ == "__main__":
+    try:
+        inicio()
+    except:
+        exit()
     opcion()
